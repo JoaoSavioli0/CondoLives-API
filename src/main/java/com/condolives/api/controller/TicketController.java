@@ -22,9 +22,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/ticket")
 @RequiredArgsConstructor
 public class TicketController {
-
     private final TicketService ticketService;
-    private final PostHelper postHelper;
 
     @PostMapping
     public ResponseEntity<TicketResponse> create(
@@ -32,7 +30,7 @@ public class TicketController {
             Authentication authentication) {
 
         UUID residentId = UUID.fromString((String) authentication.getPrincipal());
-        UUID condominiumId = postHelper.condominiumId(authentication);
+        UUID condominiumId = PostHelper.condominiumId(authentication);
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)

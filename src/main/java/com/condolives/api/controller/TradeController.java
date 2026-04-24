@@ -26,7 +26,6 @@ import jakarta.validation.Valid;
 @RequiredArgsConstructor
 public class TradeController {
     private final TradeService tradeService;
-    private final PostHelper postHelper;
 
     @PostMapping
     public ResponseEntity<TradeResponse> postMethodName(
@@ -34,7 +33,7 @@ public class TradeController {
             Authentication authentication) {
 
         UUID residentId = UUID.fromString((String) authentication.getPrincipal());
-        UUID condominiumId = postHelper.condominiumId(authentication);
+        UUID condominiumId = PostHelper.condominiumId(authentication);
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)
