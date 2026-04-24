@@ -6,12 +6,11 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.condolives.api.dto.post.CreateTicketRequest;
-import com.condolives.api.dto.post.TicketResponse;
+import com.condolives.api.dto.post.Ticket.CreateTicketRequest;
+import com.condolives.api.dto.post.Ticket.TicketResponse;
 import com.condolives.api.entity.Post.Ticket.Category;
 import com.condolives.api.entity.Post.Ticket.Ticket;
 import com.condolives.api.enums.PostStatus;
-import com.condolives.api.enums.TicketStatus;
 import com.condolives.api.exception.ServiceException;
 import com.condolives.api.repository.Post.Ticket.CategoryRepository;
 import com.condolives.api.repository.Post.Ticket.TicketRepository;
@@ -20,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class RequestService {
+public class TicketService {
 
     private final TicketRepository ticketRepository;
     private final CategoryRepository categoryRepository;

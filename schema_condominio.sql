@@ -155,6 +155,7 @@ CREATE TABLE ticket (
     id          UUID PRIMARY KEY REFERENCES post(id) ON DELETE CASCADE,
     title       TEXT NOT NULL,
     description TEXT,
+    location    TEXT,
     status      TEXT NOT NULL DEFAULT 'open'
                     CHECK (status IN ('open','in_progress','resolved','cancelled'))
 );
@@ -223,7 +224,9 @@ CREATE TABLE trade (
     title       TEXT NOT NULL,
     description TEXT,
     trade_type  TEXT NOT NULL CHECK (trade_type IN ('sale','trade','service','donation')),
-    item_type   TEXT NOT NULL CHECK (item_type IN ('product','service'))
+    item_type   TEXT NOT NULL CHECK (item_type IN ('product','service')),
+    status      TEXT NOT NULL DEFAULT 'open'
+                    CHECK (status IN ('open','in_progress','resolved','cancelled'))
 );
 
 ALTER TABLE trade ENABLE ROW LEVEL SECURITY;

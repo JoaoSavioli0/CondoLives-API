@@ -1,0 +1,34 @@
+package com.condolives.api.entity.Post.Trade;
+
+import com.condolives.api.converter.PostStatusConverter;
+import com.condolives.api.entity.Post.Post;
+import com.condolives.api.enums.PostStatus;
+
+import jakarta.persistence.Convert;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
+
+@Entity
+@Table(name = "trade")
+@DiscriminatorValue("trade")
+@Getter
+@SuperBuilder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class Trade extends Post {
+
+    private String title;
+
+    private String description;
+
+    private String tradeType;
+
+    private String itemType;
+
+    @Convert(converter = PostStatusConverter.class)
+    private PostStatus status;
+}

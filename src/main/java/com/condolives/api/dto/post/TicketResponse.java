@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.UUID;
 
 import com.condolives.api.entity.Post.Ticket.Ticket;
+import com.condolives.api.enums.PostStatus;
 import com.condolives.api.enums.TicketStatus;
 
 public record TicketResponse(
@@ -14,7 +15,7 @@ public record TicketResponse(
         String            title,
         String            description,
         String            location,
-        TicketStatus      status,
+        PostStatus        status,
         String            statusDescricao,
         List<CategoryDto> categories,
         Instant           createdAt
