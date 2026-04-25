@@ -35,6 +35,8 @@ public class TradeService {
                 .visible(true)
                 .title(request.title())
                 .description(request.description())
+                .tradeType(request.tradeType())
+                .itemType(request.itemType())
                 .status(PostStatus.ABERTO)
                 .build();
 
